@@ -1,0 +1,259 @@
+.Title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Title h1{
+    font-size: 5rem;
+    color: aliceblue;
+    text-align: center;
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px rgba(255, 217, 0, 0.75);
+    margin-bottom: 20px;
+}
+
+button{
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    background-color: #77b2f2;    
+    color: aliceblue;
+    font-weight: bolder;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.return-button{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.Title button span{
+    margin-left: 10px;
+    text-align: center;
+}
+
+@media (max-width: 1024px){
+    .Title h1{
+        font-size: 3rem;
+    }
+    .Title button{
+        font-size: 1rem;
+    }
+    .glass-container {
+        width: 80vw !important;
+    }
+    .Balance{
+        font-size: 1.5rem !important;
+    }
+    .Money{
+        font-size: 3rem !important;
+    }
+}
+
+@media (max-width: 768px){
+    .Balance{
+        font-size: 1.5rem !important;
+    }
+    .Money{
+        font-size: 3rem !important;
+    }
+}
+
+@media (max-width: 430px){
+    .Balance{
+        font-size: 0.75rem !important;
+    }
+    .Money{
+        font-size: 2rem !important;
+    }
+}
+
+.glass-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+    padding: 20px;
+    text-align: center;
+}
+
+.Balance{
+    background-color: #0d539d;
+    border-radius: 10px;
+    width: 80%;
+}
+
+.Money{
+    font-size: 3.5rem;
+    color: aliceblue;
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px rgba(89, 255, 0, 0.5);
+}
+
+.open-modal-add{
+    position: absolute;
+    bottom: 5%;
+    left: 25%;
+    background-color: #34A853;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.open-modal-spend{
+    position: absolute;
+    bottom: 5%;
+    right: 25%;
+    background-color: #a83434;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.modal-content{
+    background: rgb(106, 106, 106);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal-content input{
+    padding: 10px;
+    margin-top: 20px;
+    width: 80%;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.modal-content button{
+    margin-top: 20px;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-button {
+    background-color: #34A853;
+    color: white;
+    border: none;
+}
+
+.subtract-button {
+    background-color: #a83434;
+    color: white;
+    border: none;
+}
+
+.close-modal{
+    position: relative;
+    right: -6rem;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.Bill{
+    font-size: 1.5rem;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: auto;
+    height: 8rem;
+    background: #29292c;
+    border-radius: 1rem;
+    overflow: hidden;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.cardbody{
+    color: #a6a6d2;
+    padding: 0 1.25rem;
+    transform: translateX(0.25rem);
+    border-left: 0.25rem solid green;
+}
+
+.subtract-transaction .cardbody {
+    border-left: 0.25rem solid red;
+}
+
+.pos{
+    color: green;
+    font-weight: bolder;
+}
+
+.neg{
+    color: red;
+    font-weight: bolder;
+}
+
+.cardglow{
+    position: absolute;
+    width: 20rem;
+    height: 20rem;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle closest-side at center, aliceblue, transparent);
+    opacity: 0.1;
+}
+
+h4{
+    font-weight: bolder;
+}

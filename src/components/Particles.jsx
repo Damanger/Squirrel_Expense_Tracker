@@ -1,0 +1,69 @@
+import React, { useEffect } from 'react';
+
+const ParticlesComponent = () => {
+    useEffect(() => {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
+        script.async = true;
+        document.body.appendChild(script);
+
+        script.onload = () => {
+            window.particlesJS('background', {
+                particles: {
+                    number: {
+                        value: 80,
+                        density: {
+                            enable: true,
+                            value_area: 800,
+                        },
+                    },
+                    color: {
+                        value: '#dda000',
+                    },
+                    shape: {
+                        type: 'circle',
+                        stroke: {
+                            width: 0,
+                            color: '#000000',
+                        },
+                        polygon: {
+                            nb_sides: 5,
+                        },
+                    },
+                    size: {
+                        value: 3
+                    },
+                    move: {
+                        speed: 4
+                    }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: 'repulse',
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: 'push',
+                        },
+                    },
+                    modes: {
+                        repulse: {
+                            distance: 100,
+                            duration: 0.4,
+                        },
+                        push: {
+                            particles_nb: 4,
+                        },
+                    },
+                },
+            });
+        };
+    }, []);
+
+    return <div id="background" />;
+};
+
+export default ParticlesComponent;
