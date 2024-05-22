@@ -290,8 +290,8 @@ const LandingPage = ({ auth }) => {
                                     <div className="cardglow"></div>
                                     <div className='cardbody'>
                                         <p>{transaction.name}</p>
-                                        <p>{transaction.date}</p>
-                                        <p>{transaction.category}</p>
+                                        <p style={{marginTop:'-0.5rem'}}>{transaction.date}</p>
+                                        <p style={{fontSize:'1.8rem', marginTop:'-1rem'}}>{transaction.category}</p>
                                         <p className={`${transaction.amount >= 0 ? 'pos' : 'neg'}`}>${transaction.amount.toFixed(2)}</p>
                                     </div>
                                 </div>

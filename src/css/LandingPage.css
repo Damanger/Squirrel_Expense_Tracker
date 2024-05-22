@@ -226,8 +226,7 @@ button{
 
 .cardbody{
     color: #a6a6d2;
-    padding: 0 1.25rem;
-    transform: translateX(0.25rem);
+    padding: 0 3rem;
     border-left: 0.25rem solid green;
 }
 
