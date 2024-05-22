@@ -276,14 +276,14 @@ const LandingPage = ({ auth }) => {
         <>
             {isLoggedIn ? (
                 <>
-                    <button className='return-button' onClick={handleLogout}>Log out</button>
+                    <button className='return-button' style={{zIndex:'100'}} onClick={handleLogout}>Log out</button>
                     <div className='glass-container'>
                         <div className='Balance'>
                             <h1>Squirrel Expense Tracker</h1>
                             <h2>Total Balance</h2>
                             <h1 className='Money'>${userBalance.toFixed(2)}</h1>
                         </div>
-                        <div>
+                        <div className='Transactions'>
                             <h2>Transactions</h2>
                             {transactions.map(transaction => (
                                 <div className={`card ${transaction.amount >= 0 ? 'add-transaction' : 'subtract-transaction'}`} key={transaction.id}>

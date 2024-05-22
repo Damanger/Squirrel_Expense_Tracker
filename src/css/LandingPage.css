@@ -87,6 +87,18 @@ button{
     }
 }
 
+@media (max-width: 375px){
+    .Balance{
+        font-size: 0.5rem !important;
+    }
+    .Money{
+        font-size: 1.5rem !important;
+    }
+    .Transactions{
+        font-size: 0.7rem !important;
+    }
+}
+
 .glass-container{
     display: flex;
     flex-direction: column;
@@ -115,6 +127,21 @@ button{
     color: aliceblue;
     font-weight: bolder;
     text-shadow: 2px 2px 2px rgba(89, 255, 0, 0.5);
+}
+
+.Transactions{
+    overflow-y: auto;
+    height: 25vh;
+}
+
+.Transactions h2{
+    position: sticky;
+    top: 0;
+    background: #29292c;
+    color: #a6a6d2;
+    padding: 0.5rem 0;
+    z-index: 100;
+    border-radius: 10px;
 }
 
 .open-modal-add{
