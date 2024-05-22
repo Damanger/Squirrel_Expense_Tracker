@@ -16,7 +16,7 @@ const LandingPage = ({ auth }) => {
     const [userBalance, setUserBalance] = useState(0);
     const [transactions, setTransactions] = useState([]);
     const [action, setAction] = useState('add');
-
+    const [categoryValue, setCategoryValue] = useState('');
 
     useEffect(() => {
         // Obtener la cantidad de dinero del usuario de la base de datos al cargar la página
@@ -135,6 +135,11 @@ const LandingPage = ({ auth }) => {
         setDateValue(value);
     };
 
+    const handleCategoryChange = (event) => {
+        const value = event.target.value;
+        setCategoryValue(value);
+    };
+
     const fetchUserBalance = async () => {
         try {
             const user = auth.currentUser;
@@ -164,7 +169,7 @@ const LandingPage = ({ auth }) => {
     const addBalance = async () => {
         try {
             // Verifica que todos los campos estén completos
-            if (!nameValue || !dateValue || !inputValue) {
+            if (!nameValue || !dateValue || !inputValue || !categoryValue) {
                 toast.error('Please fill in all fields.');
                 return;
             }
@@ -190,6 +195,7 @@ const LandingPage = ({ auth }) => {
                 userId: auth.currentUser.uid,
                 name: nameValue,
                 date: dateValue,
+                category: categoryValue,
                 amount: parseFloat(inputValue),
             });
     
@@ -203,6 +209,7 @@ const LandingPage = ({ auth }) => {
             setNameValue('');
             setDateValue('');
             setInputValue('');
+            setCategoryValue('');
     
             closeModal(); // Cerrar el modal después de actualizar la cantidad de dinero
         } catch (error) {
@@ -215,7 +222,7 @@ const LandingPage = ({ auth }) => {
     const subtractBalance = async () => {
         try {
             // Verifica que todos los campos estén completos
-            if (!nameValue || !dateValue || !inputValue) {
+            if (!nameValue || !dateValue || !inputValue || !categoryValue) {
                 toast.error('Please fill in all fields.');
                 return;
             }
@@ -241,6 +248,7 @@ const LandingPage = ({ auth }) => {
                 userId: auth.currentUser.uid,
                 name: nameValue,
                 date: dateValue,
+                category: categoryValue,
                 amount: -parseFloat(inputValue), // Restar en lugar de sumar
             });
     
@@ -254,6 +262,7 @@ const LandingPage = ({ auth }) => {
             setNameValue('');
             setDateValue('');
             setInputValue('');
+            setCategoryValue('');
     
             closeModal(); // Cerrar el modal después de actualizar la cantidad de dinero
         } catch (error) {
@@ -282,6 +291,7 @@ const LandingPage = ({ auth }) => {
                                     <div className='cardbody'>
                                         <p>{transaction.name}</p>
                                         <p>{transaction.date}</p>
+                                        <p>{transaction.category}</p>
                                         <p className={`${transaction.amount >= 0 ? 'pos' : 'neg'}`}>${transaction.amount.toFixed(2)}</p>
                                     </div>
                                 </div>
@@ -330,7 +340,30 @@ const LandingPage = ({ auth }) => {
                                         autoComplete='off'
                                     />
                                 </div>
-                                <button className={action === 'add' ? 'add-button' : 'subtract-button'} onClick={action === 'add' ? addBalance : subtractBalance} disabled={!inputValue}>{action === 'add' ? 'Add Balance' : 'Subtract Balance'}</button>
+                                <div>
+                                    <label htmlFor="category">Category:</label>
+                                    <br/>
+                                    <br/>
+                                    <select
+                                        id='category'
+                                        value={categoryValue}
+                                        onChange={handleCategoryChange}
+                                        required
+                                    >
+                                        <option value='' disabled>Select a category</option>
+                                        <option value='🍱'>Food</option>
+                                        <option value='🕺'>Entertainment</option>
+                                        <option value='👚'>Clothes</option>
+                                        <option value='🐶'>Pet</option>
+                                        <option value='👨‍⚕️'>Health</option>
+                                        <option value='🚕'>Transport</option>
+                                        <option value='🧑‍🏫'>Education</option>
+                                        <option value='🛫'>Trips</option>
+                                        <option value='💰'>Savings</option>
+                                        <option value='💸'>Others</option>
+                                    </select>
+                                </div>
+                                <button className={action === 'add' ? 'add-button' : 'subtract-button'} onClick={action === 'add' ? addBalance : subtractBalance} disabled={!inputValue || !categoryValue}>{action === 'add' ? 'Add Balance' : 'Subtract Balance'}</button>
                             </div>
                         </div>
                     )}
