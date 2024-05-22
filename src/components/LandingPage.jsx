@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
 import { getFirestore, updateDoc, getDoc, doc, setDoc, addDoc, collection, getDocs, query, where, onSnapshot } from 'firebase/firestore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoneyBill, faCartShopping} from '@fortawesome/free-solid-svg-icons';
+import { faMoneyBill, faCartShopping, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../css/LandingPage.css';
